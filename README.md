@@ -1,11 +1,11 @@
-# Invoke-MetasploitPayload.ps1
+<h2 align="center">Invoke-MetasploitPayload.ps1</h2>
+<hr>
 Invoke-MetasploitPayload is a Powershell script used to kick off a Metasploit payload. It relies on the exploit/multi/scripts/web_delivery Metasploit module.
 
-### The exploit/multi/scripts/web_delivery module
-The web_delivery module generates a script for a given payload and then fires up a webserver to host said script. If the payload is a reverse shell, it will also handle
-starting up the listener for that payload. 
+#### The exploit/multi/scripts/web_delivery module
+The web_delivery module generates a script for a given payload and then fires up a webserver to host said script. If the payload is a reverse shell, it will also handle starting up the listener for that payload. 
 
-### Example Usage
+#### Example Usage
 On your Metasploit instance, run the following commands
 
 ```
@@ -33,10 +33,12 @@ run -j
 ```
 
 Once run, the web_delivery module will spin up the webserver to host the script and reverse listener for our meterpreter session.
+#### Getting the Payload URL
+After running the web_delivery module, it will print out the URL for the webserver hosting the script file. This will typically look like `http://[IP_OF_METASPLOIT_INSTANCE]/[RANDOM CHARACTERS]`. This URL is what you'll pass to `Invoke-MetasploitPayload`. _You can ignore the line about "Run the following command on the target machine"_
 
-It will also print out the URL for the webserver, this will typically look like `http://[IP_OF_METASPLOIT_INSTANCE]/[RANDOM CHARACTERS]`. This URL is what you'll pass to `Invoke-MetasploitPayload`
+![Web Delivery Example](/web_delivery_screenshot.png)
 
-### Using Invoke-Metasploit.ps1
+#### Using Invoke-Metasploit.ps1
 
 Usage is simple, just pass the URL from the web_delivery module. Invoke-MetasploitPayload will handle spinning up a new process and then downloading and executing the script.
 
