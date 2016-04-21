@@ -1,5 +1,4 @@
 <h2 align="center">Invoke-MetasploitPayload.ps1</h2>
-<hr>
 Invoke-MetasploitPayload is a Powershell script used to kick off a Metasploit payload. It relies on the exploit/multi/scripts/web_delivery Metasploit module.
 
 #### The exploit/multi/scripts/web_delivery module
