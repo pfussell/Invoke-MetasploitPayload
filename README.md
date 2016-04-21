@@ -52,7 +52,7 @@ msf exploit(web_delivery) > run -j
 ```
 
 #### Getting the Payload URL
-After running the web_delivery module, it will print out the URL for the webserver hosting the script file. If you specified a URIPATH, this will be something like `http://[IP_OF_METASPLOIT_INSTANCE]/[URIPATH]` else it will have random characters for the URL (`http://[IP_OF_METASPLOIT_INSTANCE]/[URIPATH]`).
+After running the web_delivery module, it will print out the URL for the webserver hosting the script file. If you specified a URIPATH, this will be something like `http://[IP_OF_METASPLOIT_INSTANCE]/[URIPATH]` else it will have random characters for the URL (`http://[IP_OF_METASPLOIT_INSTANCE]/[RANDOM_CHARACTERS]`).
 
 This URL is what you'll pass to `Invoke-MetasploitPayload`. 
 
