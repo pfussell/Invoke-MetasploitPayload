@@ -1,8 +1,8 @@
 <h2 align="center">Invoke-MetasploitPayload.ps1</h2>
 Invoke-MetasploitPayload is a Powershell script used to kick off a Metasploit payload. It relies on the exploit/multi/scripts/web_delivery Metasploit module.
 
-#### The exploit/multi/scripts/web_delivery module
-The web_delivery module generates a script for a given payload and then fires up a webserver to host said script. If the payload is a reverse shell, it will also handle starting up the listener for that payload. 
+#### The exploit/multi/scripts/web_delivery Metasploit module
+The web_delivery Metasploit module generates a script for a given payload and then fires up a webserver to host said script. If the payload is a reverse shell, it will also handle starting up the listener for that payload. 
 
 #### Example Usage
 On your Metasploit instance, run the following commands
