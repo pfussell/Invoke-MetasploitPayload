@@ -9,7 +9,8 @@ Required Dependencies: None
 Optional Dependencies: None
  
 .DESCRIPTION
-Spawns a new, hidden PowerShell window that downloads and executes a Metasploit payload from a specified URL.
+Spawns a new, hidden PowerShell window that downloads and executes a Metasploit payload from a specified URL. It is a
+modified version of the "proxy_aware_download_and_exec_string" function found in psh_methods.rb in Metasploit. 
 
 This relies on the exploit/multi/scripts/web_delivery metasploit module. The web_delivery module generates a script for
 a given payload and then fires up a webserver to host said script. If the payload is a reverse shell, it will also handle
